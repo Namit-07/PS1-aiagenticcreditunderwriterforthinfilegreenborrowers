@@ -128,8 +128,7 @@ def _cors_headers(request: Request) -> dict[str, str]:
 @app.exception_handler(Exception)
 async def unhandled_exception(request: Request, exc: Exception) -> JSONResponse:
     tb = traceback.format_exc()
-    _log.error("Unhandled error on %s %s
-%s", request.method, request.url.path, tb)
+    _log.error("Unhandled error on %s %s -- %s", request.method, request.url.path, tb)
     body: dict[str, object] = {"detail": f"{type(exc).__name__}: {exc}"[:600]}
     if settings.DEBUG:
         body["trace"] = tb.splitlines()[-12:]
