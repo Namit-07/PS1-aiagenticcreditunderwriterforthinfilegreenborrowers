@@ -100,3 +100,37 @@ async def policies() -> dict[str, Any]:
         return await ai_service.get_policies()
     except ai_service.AIServiceError as exc:
         return {"error": str(exc)}
+
+
+# --------------------------------------------------------------------------- #
+# Last-resort error handler: a JSON body (never an HTML proxy page) WITH CORS headers,
+# so the browser can read the real reason instead of reporting "cannot reach backend".
+# --------------------------------------------------------------------------- #
+import logging
+import re
+import traceback
+
+from fastapi import Request
+from fastapi.responses import JSONResponse
+
+_log = logging.getLogger("acu.backend")
+
+
+def _cors_headers(request: Request) -> dict[str, str]:
+    origin = request.headers.get("origin", "")
+    allowed = {o.strip().rstrip("/") for o in settings.CORS_ORIGINS}
+    regex = getattr(settings, "CORS_ORIGIN_REGEX", None)
+    if origin and (origin in allowed or (regex and re.fullmatch(regex, origin))):
+        return {"Access-Control-Allow-Origin": origin, "Access-Control-Allow-Credentials": "true", "Vary": "Origin"}
+    return {}
+
+
+@app.exception_handler(Exception)
+async def unhandled_exception(request: Request, exc: Exception) -> JSONResponse:
+    tb = traceback.format_exc()
+    _log.error("Unhandled error on %s %s
+%s", request.method, request.url.path, tb)
+    body: dict[str, object] = {"detail": f"{type(exc).__name__}: {exc}"[:600]}
+    if settings.DEBUG:
+        body["trace"] = tb.splitlines()[-12:]
+    return JSONResponse(status_code=500, content=body, headers=_cors_headers(request))
