@@ -78,6 +78,9 @@ try:  # preferred: typed settings with .env support
 
         # CORS
         CORS_ORIGINS: Annotated[list[str], NoDecode] = ["http://localhost:3000"]
+        # Optional regex matched against the Origin header, e.g. ``https://.*\.vercel\.app``
+        # so preview deployments do not need to be listed one by one.
+        CORS_ORIGIN_REGEX: str | None = None
 
         @field_validator("CORS_ORIGINS", "ALLOWED_UPLOAD_EXTENSIONS", mode="before")
         @classmethod
@@ -116,6 +119,7 @@ except Exception:  # pragma: no cover - pydantic-settings not installed
             self.MAX_UPLOAD_MB = int(g("MAX_UPLOAD_MB", "10"))
             self.ALLOWED_UPLOAD_EXTENSIONS = _split_csv(g("ALLOWED_UPLOAD_EXTENSIONS", "pdf,png,jpg,jpeg,txt"))
             self.CORS_ORIGINS = _split_csv(g("CORS_ORIGINS", "http://localhost:3000"))
+            self.CORS_ORIGIN_REGEX = (g("CORS_ORIGIN_REGEX") or "").strip() or None
 
 
 @lru_cache

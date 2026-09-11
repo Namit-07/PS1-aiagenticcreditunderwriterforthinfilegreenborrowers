@@ -40,7 +40,8 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=[o.strip().rstrip("/") for o in settings.CORS_ORIGINS if o.strip()],
+    allow_origin_regex=(getattr(settings, "CORS_ORIGIN_REGEX", None) or None),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -84,7 +85,10 @@ async def health() -> dict[str, Any]:
     except Exception as exc:  # pragma: no cover
         ai = {"status": "unreachable", "error": str(exc)}
     return {"status": "ok", "service": "backend", "mock_ai_mode": settings.MOCK_AI_MODE,
-            "ai_service_url": settings.AI_SERVICE_URL, "ai_service": ai}
+            "ai_service_url": settings.AI_SERVICE_URL, "ai_service": ai,
+            # surfaced so a CORS misconfiguration can be diagnosed from the browser
+            "cors_origins": settings.CORS_ORIGINS,
+            "cors_origin_regex": getattr(settings, "CORS_ORIGIN_REGEX", None)}
 
 
 @app.get("/policies", tags=["system"])
