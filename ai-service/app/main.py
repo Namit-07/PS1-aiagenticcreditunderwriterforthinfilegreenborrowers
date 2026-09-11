@@ -144,9 +144,9 @@ async def run_what_if(run_id: str, scenario: dict[str, Any]) -> dict[str, Any]:
 app.include_router(router)
 
 
-@app.get("/", tags=["system"])
+@app.api_route("/", methods=["GET", "HEAD"], tags=["system"])
 def root() -> dict[str, Any]:
-    """Human-friendly landing so the deployed service base URL isn't a bare 404."""
+    """Landing page + platform health probe target (Render probes "/" with HEAD)."""
     return {
         "service": settings.APP_NAME,
         "ok": True,

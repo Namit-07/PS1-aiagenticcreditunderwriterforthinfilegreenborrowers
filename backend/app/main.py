@@ -60,9 +60,9 @@ app.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])
 app.include_router(risk.router, prefix="/risk", tags=["risk"])
 
 
-@app.get("/", tags=["system"])
+@app.api_route("/", methods=["GET", "HEAD"], tags=["system"])
 async def root() -> dict[str, Any]:
-    """Human-friendly landing so the deployed service base URL isn't a bare 404."""
+    """Landing page + platform health probe target (Render probes "/" with HEAD)."""
     return {
         "service": settings.APP_NAME,
         "ok": True,
