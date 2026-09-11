@@ -31,8 +31,10 @@ def _as_bool(value: str | None, default: bool) -> bool:
 
 
 try:  # preferred: typed settings with .env support
+    from typing import Annotated
+
     from pydantic import field_validator
-    from pydantic_settings import BaseSettings, SettingsConfigDict
+    from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
     class Settings(BaseSettings):  # type: ignore[misc]
         """Typed settings sourced from environment variables / .env file."""
@@ -72,10 +74,10 @@ try:  # preferred: typed settings with .env support
         STORAGE_BUCKET: str = "documents"
         UPLOAD_DIR: str = _DEFAULT_UPLOADS
         MAX_UPLOAD_MB: int = 10
-        ALLOWED_UPLOAD_EXTENSIONS: list[str] = ["pdf", "png", "jpg", "jpeg", "txt"]
+        ALLOWED_UPLOAD_EXTENSIONS: Annotated[list[str], NoDecode] = ["pdf", "png", "jpg", "jpeg", "txt"]
 
         # CORS
-        CORS_ORIGINS: list[str] = ["http://localhost:3000"]
+        CORS_ORIGINS: Annotated[list[str], NoDecode] = ["http://localhost:3000"]
 
         @field_validator("CORS_ORIGINS", "ALLOWED_UPLOAD_EXTENSIONS", mode="before")
         @classmethod
