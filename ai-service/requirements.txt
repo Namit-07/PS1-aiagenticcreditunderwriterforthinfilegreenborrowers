@@ -31,7 +31,7 @@ pdf2image>=1.17
 # Persistence
 SQLAlchemy>=2.0
 alembic>=1.13
-psycopg2-binary>=2.9
+psycopg[binary]>=3.2,<4   # driver for postgresql+psycopg:// URLs (Supabase / Render Postgres)
 
 # HTTP
 httpx>=0.27

@@ -1,0 +1,5 @@
+KYC DOCUMENT - Aadhaar (SYNTHETIC, for demo only)
+Name: Priya Sharma
+Aadhaar No: XXXX-XXXX-8765
+DOB: 05/09/1994
+Address: 22 Lake View, Bengaluru 560001

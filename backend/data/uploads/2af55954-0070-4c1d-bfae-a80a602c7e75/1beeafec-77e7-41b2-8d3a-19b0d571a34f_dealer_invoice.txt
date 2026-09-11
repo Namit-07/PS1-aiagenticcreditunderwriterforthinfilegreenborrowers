@@ -1,0 +1,6 @@
+DEALER INVOICE - GreenWheels EV Pvt Ltd (SYNTHETIC)
+Buyer name: Ravi Kumar
+Vehicle: EV scooter (2 wheeler)
+On-road price: Rs 120,000
+Loan amount requested: Rs 115,000
+Chassis: SYN-0000-DEMO

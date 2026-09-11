@@ -1,0 +1,171 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 3593 >>
+stream
+BT
+/F1 10 Tf
+12 TL
+40 810 Td
+(Credit Memo - AI Agentic Underwriter) Tj T*
+(Run: f486651e-7ae1-47c3-bc29-e58059ad3cbd   Application: 1dcf6b90-d8ab-4f5c-89fd-cb6e544865f1) Tj T*
+(Generated: 2026-09-11T18:57:24.820010+00:00   by explanation_agent) Tj T*
+() Tj T*
+(SUMMARY \(narrative by template; all figures from the deterministic engine\)) Tj T*
+(   The request for Rs 90,000 over 36 months is approved under the default policy \(v1.0\). Verified monthly) Tj T*
+(   income is Rs 39,150 against existing obligations of Rs 2,500; the proposed EMI of Rs 3,076 gives a FOIR of) Tj T*
+(   14.2% \(limit 50.0%\) and an LTV of 75.0% \(limit 80.0%\). Risk band: LOW.) Tj T*
+() Tj T*
+(   For the borrower:) Tj T*
+(     Ravi Kumar, your loan of Rs 90,000 is approved. Your documents agree with each other, and your monthly) Tj T*
+(     instalment of Rs 3,076 fits within the affordability limit based on the income we verified.) Tj T*
+(   Key drivers:) Tj T*
+(     - FOIR 14.2% vs limit 50.0%) Tj T*
+(     - LTV 75.0% vs limit 80.0%) Tj T*
+(     - Verified income Rs 39,150 \(volatility 4.1%\)) Tj T*
+(   Next steps:) Tj T*
+(     - Issue sanction letter and collect e-mandate for the EMI.) Tj T*
+(     - Archive the credit memo PDF with the file.) Tj T*
+() Tj T*
+(1. DECISION) Tj T*
+(   Decision: APPROVED   Confidence: 0.88) Tj T*
+(   Reason codes: none) Tj T*
+() Tj T*
+(1b. WHY THIS DECISION \(policy margins + SHAP; words by template\)) Tj T*
+(   Ravi Kumar's loan is approved because every policy test passed.) Tj T*
+(   Affordability and collateral are inside the limits: FOIR 14.2% vs limit 50.0% \(-35.8 pp under\); LTV 75.0%) Tj T*
+(   vs limit 80.0% \(-5.0 pp under\).) Tj T*
+(   No warning was raised on the documents.) Tj T*
+(   The model's risk band is LOW \(score 0.2611 on a 0-1 scale where 0 is safest; a typical synthetic borrower) Tj T*
+(   scores 0.437336\).) Tj T*
+(   What pushes risk up: ltv \(loan / asset value\) \(75.0% vs a typical 68.1%, +0.012\); repayment history score) Tj T*
+(   \(70.0% vs a typical 71.7%, +0.003\).) Tj T*
+(   What pulls risk down: foir \(obligations / income\) \(14.2% vs a typical 41.1%, -0.081\); emi-to-income ratio) Tj T*
+(   \(7.9% vs a typical 34.4%, -0.040\); employment stability \(95.9% vs a typical 71.8%, -0.024\).) Tj T*
+(   The risk score is a secondary signal; the policy rules above decide the outcome.) Tj T*
+(   Mathematics:) Tj T*
+(     PASS  FOIR 14.2% vs limit 50.0% \(-35.8 pp under\)) Tj T*
+(     PASS  LTV 75.0% vs limit 80.0% \(-5.0 pp under\)) Tj T*
+(     PASS  age 29 vs minimum 21 \(+8 years\)) Tj T*
+(     PASS  verified monthly income Rs 39,150) Tj T*
+(     risk score 0.261123 = base 0.437336 + sum  SHAP -0.176213 \(method additive_exact, additivity error 0.0\)) Tj T*
+(     phi\(foir\) = -0.0806  [value 14.2% vs baseline 41.1%]) Tj T*
+(     phi\(emi_to_income\) = -0.0398  [value 7.9% vs baseline 34.4%]) Tj T*
+(     phi\(employment_stability\) = -0.0241  [value 95.9% vs baseline 71.8%]) Tj T*
+(     phi\(income_volatility\) = -0.0183  [value 4.1% vs baseline 22.4%]) Tj T*
+(     phi\(income_mismatch_percentage\) = -0.0124  [value 0.3% vs baseline 12.7%]) Tj T*
+() Tj T*
+(2. BORROWER SUMMARY \(declared facts\)) Tj T*
+(   ref_id: REF-APP-CLEAN-001) Tj T*
+(   full_name: Ravi Kumar) Tj T*
+(   age: 29) Tj T*
+(   location_tier: tier_2) Tj T*
+(   employment_type: gig_platform) Tj T*
+(   declared_monthly_income: 39,000.00) Tj T*
+(   loan_request.amount: 90,000.00) Tj T*
+(   loan_request.down_payment: 30,000.00) Tj T*
+(   loan_request.tenure_months: 36) Tj T*
+(   loan_request.vehicle_price: 120,000.00) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+3 0 obj
+<< /Length 2803 >>
+stream
+BT
+/F1 10 Tf
+12 TL
+40 810 Td
+(3. EXTRACTED FACTS \(evidence with citations\)) Tj T*
+(   full_name = Ravi Kumar  conf 0.95  [application_form p.None] auto) Tj T*
+(   monthly_income = 39,000.00  conf 0.95  [application_form p.None] auto) Tj T*
+(   loan_amount = 90,000.00  conf 0.95  [application_form p.None] auto) Tj T*
+(   vehicle_price = 120,000.00  conf 0.95  [application_form p.None] auto) Tj T*
+(   full_name = Ravi Kumar  conf 0.85  [kyc.txt p.1] auto) Tj T*
+(   identity = XXXX-XXXX-4321  conf 0.9  [kyc.txt p.1] auto) Tj T*
+(   address = 14 MG Road, Pune 411001  conf 0.85  [kyc.txt p.1] auto) Tj T*
+(   monthly_income = 38,900.00  conf 0.92  [bank_statement.txt p.1] auto) Tj T*
+(   bank_credits = [38500.0, 41000.0, 36200.0, 39800.0, 37900.0, 40100.0]  conf 0.9  [bank_statement.txt p.1]) Tj T*
+(   auto) Tj T*
+(   existing_monthly_obligations = 2,500.00  conf 0.92  [bank_statement.txt p.1] auto) Tj T*
+(   address = 14 MG Road, Pune 411001  conf 0.85  [bank_statement.txt p.1] auto) Tj T*
+(   vehicle_price = 120,000.00  conf 0.92  [dealer_invoice.txt p.1] auto) Tj T*
+(   loan_amount = 90,000.00  conf 0.92  [dealer_invoice.txt p.1] auto) Tj T*
+(   platform_income = 39,000.00  conf 0.92  [platform_earnings.txt p.1] auto) Tj T*
+(   monthly_income = 39,000.00  conf 0.92  [platform_earnings.txt p.1] auto) Tj T*
+() Tj T*
+(4. CALCULATED VALUES \(deterministic engine, formula v1\)) Tj T*
+(   verified_income: 39,150.00) Tj T*
+(   existing_obligations: 2,500.00) Tj T*
+(   emi: 3,075.99) Tj T*
+(   foir: 0.1424) Tj T*
+(   ltv: 0.75) Tj T*
+(   income_volatility: 0.0408) Tj T*
+(   income_stability: 0.9592) Tj T*
+(   loan_to_income: 0.1916) Tj T*
+(   emi_to_income: 0.0786) Tj T*
+(   input.annual_rate: 14.00) Tj T*
+(   input.existing_monthly_obligations: 2,500.00) Tj T*
+(   input.loan_amount: 90,000.00) Tj T*
+(   input.monthly_incomes: [38500.0, 41000.0, 36200.0, 39800.0, 37900.0, 40100.0]) Tj T*
+(   input.tenure_months: 36) Tj T*
+(   input.vehicle_price: 120,000.00) Tj T*
+() Tj T*
+(5. RISK SIGNAL \(secondary, never decides\)) Tj T*
+(   score 0.2611  band LOW  model xgb-v1/fallback) Tj T*
+() Tj T*
+(6. AI REASONING) Tj T*
+(   strengths: FOIR 14% is comfortably serviceable) Tj T*
+(   strengths: LTV 75% leaves borrower equity cushion) Tj T*
+(   risks: INCOME_MISMATCH: Monthly income differs across documents by 0.3%) Tj T*
+(   reasoning: Deterministic FOIR 14.24%, LTV 75.00%; XGBoost band LOW \(score 0.2611\).) Tj T*
+() Tj T*
+(7. POLICY) Tj T*
+(   profile default version 1.0) Tj T*
+(   limit.foir_max: 0.5) Tj T*
+(   limit.ltv_max: 0.8) Tj T*
+(   limit.max_tenure_months: 60) Tj T*
+(   limit.min_age: 21) Tj T*
+() Tj T*
+(8. HUMAN OVERRIDES) Tj T*
+(   none) Tj T*
+() Tj T*
+(SYNTHETIC DATA - demo only. Financial numbers computed deterministically; LLM never sets numbers.) Tj T*
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 3 0 R >>
+endobj
+6 0 obj
+<< /Type /Pages /Kids [4 0 R 5 0 R] /Count 2 >>
+endobj
+7 0 obj
+<< /Type /Catalog /Pages 6 0 R >>
+endobj
+8 0 obj
+<< /Title (Credit Memo - AI Agentic Underwriter) /Producer (acu-backend) >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000003730 00000 n 
+0000006585 00000 n 
+0000006711 00000 n 
+0000006837 00000 n 
+0000006900 00000 n 
+0000006949 00000 n 
+trailer
+<< /Size 9 /Root 7 0 R /Info 8 0 R >>
+startxref
+7040
+%%EOF
