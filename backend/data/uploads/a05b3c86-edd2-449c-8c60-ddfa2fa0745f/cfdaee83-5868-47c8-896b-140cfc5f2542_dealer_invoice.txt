@@ -1,6 +1,0 @@
-DEALER INVOICE - GreenWheels EV Pvt Ltd (SYNTHETIC)
-Buyer name: Priya Sharma
-Vehicle: EV auto rickshaw (3 wheeler)
-On-road price: Rs 240,000
-Loan amount requested: Rs 180,000
-Chassis: SYN-0000-DEMO

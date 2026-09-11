@@ -1,5 +1,0 @@
-KYC DOCUMENT - Aadhaar (SYNTHETIC, for demo only)
-Name: Arjun Mehta
-Aadhaar No: XXXX-XXXX-1122
-DOB: 20/01/1999
-Address: 7 Station Road, Jaipur 302001

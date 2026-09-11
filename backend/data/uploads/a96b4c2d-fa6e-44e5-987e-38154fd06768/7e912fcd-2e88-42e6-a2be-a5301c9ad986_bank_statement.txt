@@ -1,8 +1,0 @@
-BANK STATEMENT - Demo Bank Ltd (SYNTHETIC)
-Account holder name: Ravi Kumar
-IFSC: DEMO0001234   Account: XXXXXX7788
-Statement period: last 6 months
-Monthly credits (last 6 months): Rs 38,500 ; Rs 41,000 ; Rs 36,200 ; Rs 39,800 ; Rs 37,900 ; Rs 40,100
-Average monthly income (credits): Rs 38,900
-Existing EMI obligations: Rs 2,500
-Closing balance trend: stable

@@ -1,6 +1,0 @@
-DEALER INVOICE - GreenWheels EV Pvt Ltd (SYNTHETIC)
-Buyer name: Arjun Mehta
-Vehicle: EV scooter (2 wheeler, premium)
-On-road price: Rs 200,000
-Loan amount requested: Rs 150,000
-Chassis: SYN-0000-DEMO

@@ -1,8 +1,0 @@
-BANK STATEMENT - Demo Bank Ltd (SYNTHETIC)
-Account holder name: Ravi Kumar
-Address: 14 MG Road, Pune 411001
-IFSC: DEMO0001234   Account: XXXXXX7788
-Statement period: last 6 months
-Average monthly income (credits): Rs 3?,900 [low quality scan]
-Existing EMI obligations: Rs 2,500
-Closing balance trend: stable

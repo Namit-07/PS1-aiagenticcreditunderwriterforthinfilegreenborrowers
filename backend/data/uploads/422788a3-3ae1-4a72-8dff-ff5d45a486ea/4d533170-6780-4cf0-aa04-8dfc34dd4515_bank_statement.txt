@@ -1,8 +1,0 @@
-BANK STATEMENT - Demo Bank Ltd (SYNTHETIC)
-Account holder name: Arjun Mehta
-IFSC: DEMO0001234   Account: XXXXXX7788
-Statement period: last 6 months
-Monthly credits (last 6 months): Rs 22,000 ; Rs 21,500 ; Rs 23,800 ; Rs 20,900 ; Rs 22,600 ; Rs 21,200
-Average monthly income (credits): Rs 22,000
-Existing EMI obligations: Rs 6,000
-Closing balance trend: stable

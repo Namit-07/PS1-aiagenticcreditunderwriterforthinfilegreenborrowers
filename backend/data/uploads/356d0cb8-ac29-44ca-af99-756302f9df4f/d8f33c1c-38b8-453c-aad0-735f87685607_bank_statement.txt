@@ -1,9 +1,0 @@
-BANK STATEMENT - Demo Bank Ltd (SYNTHETIC)
-Account holder name: Priya Sharma
-Address: 22 Lake View, Bengaluru 560001
-IFSC: DEMO0001234   Account: XXXXXX7788
-Statement period: last 6 months
-Monthly credits (last 6 months): Rs 38,500 ; Rs 37,200 ; Rs 39,900 ; Rs 38,100 ; Rs 36,800 ; Rs 40,500
-Average monthly income (credits): Rs 38,500
-Existing EMI obligations: Rs 3,000
-Closing balance trend: stable

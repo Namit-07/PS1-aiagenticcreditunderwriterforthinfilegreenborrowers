@@ -1,5 +1,0 @@
-KYC DOCUMENT - Aadhaar (SYNTHETIC, for demo only)
-Name: Ravi Kumar
-Aadhaar No: XXXX-XXXX-4321
-DOB: 12/03/1996
-Address: 14 MG Road, Pune 411001

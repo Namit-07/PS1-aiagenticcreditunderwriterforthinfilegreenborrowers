@@ -82,5 +82,10 @@ test-results/
 *.log
 .DS_Store
 
+# Runtime data (uploads, memo PDFs, local AI-service DB)
+backend/data/
+ai-service/data/
+frontend/data/
+
 # Docker
 *.pid
