@@ -144,6 +144,21 @@ async def run_what_if(run_id: str, scenario: dict[str, Any]) -> dict[str, Any]:
 app.include_router(router)
 
 
+@app.get("/", tags=["system"])
+def root() -> dict[str, Any]:
+    """Human-friendly landing so the deployed service base URL isn't a bare 404."""
+    return {
+        "service": settings.APP_NAME,
+        "ok": True,
+        "docs": "/docs",
+        "health": "/health",
+        "policies": "/policies",
+        "risk_metrics": "/risk/metrics",
+        "mock_ai_mode": settings.MOCK_AI_MODE,
+        "note": "This is the AI-service API. Open the Next.js frontend for the dashboard UI.",
+    }
+
+
 @app.get("/health", tags=["system"])
 def health() -> dict[str, object]:
     return {

@@ -59,6 +59,20 @@ app.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])
 app.include_router(risk.router, prefix="/risk", tags=["risk"])
 
 
+@app.get("/", tags=["system"])
+async def root() -> dict[str, Any]:
+    """Human-friendly landing so the deployed service base URL isn't a bare 404."""
+    return {
+        "service": settings.APP_NAME,
+        "ok": True,
+        "docs": "/docs",
+        "health": "/health",
+        "policies": "/policies",
+        "mock_ai_mode": settings.MOCK_AI_MODE,
+        "note": "This is the backend API. Open the Next.js frontend for the dashboard UI.",
+    }
+
+
 @app.get("/health", tags=["system"])
 async def health() -> dict[str, Any]:
     """Liveness probe (+ AI service reachability)."""

@@ -30,6 +30,37 @@ def _as_bool(value: str | None, default: bool = False) -> bool:
     return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
+def _build_database_url(default_sqlite_path: str) -> str:
+    """Resolve DATABASE_URL, preferring discrete, safely-encoded Postgres vars.
+
+    Order of precedence:
+      1. Discrete ``POSTGRES_*`` components (always assembled with a percent-encoded
+         password), when ``POSTGRES_HOST`` is set.
+      2. A full ``DATABASE_URL`` provided by the user.
+      3. Local SQLite file (zero-config dev).
+
+    Using discrete vars avoids the classic failure where a Supabase/Render pooler
+    password containing ``@ : / # ]`` etc. is pasted raw into a URL and mis-parsed
+    (e.g. ``failed to resolve host 'CR7]@aws-0-...'``).
+    """
+    host = (os.getenv("POSTGRES_HOST") or "").strip()
+    if host:
+        try:
+            from urllib.parse import quote
+
+            user = quote((os.getenv("POSTGRES_USER") or "postgres").strip(), safe="")
+            password = quote((os.getenv("POSTGRES_PASSWORD") or "").strip(), safe="")
+            port = (os.getenv("POSTGRES_PORT") or "5432").strip()
+            db = (os.getenv("POSTGRES_DB") or "postgres").strip()
+            return f"postgresql+psycopg://{user}:{password}@{host}:{port}/{db}"
+        except Exception:  # pragma: no cover
+            pass
+    url = (os.getenv("DATABASE_URL") or "").strip()
+    if url:
+        return url
+    return f"sqlite:///{default_sqlite_path}"
+
+
 class Settings:
     """Typed-ish settings sourced from the environment."""
 
@@ -65,11 +96,7 @@ class Settings:
         self.POLICY_PATH: str = os.getenv("POLICY_PATH", str(_SERVICE_DIR / "policies"))
 
         # Persistence (SQLite by default for zero-config; Postgres via DATABASE_URL in prod)
-        default_db = _SERVICE_DIR / "data" / "ai_service.db"
-        self.DATABASE_URL: str = os.getenv(
-            "DATABASE_URL",
-            f"sqlite:///{default_db.as_posix()}",
-        )
+        self.DATABASE_URL: str = _build_database_url(str(_SERVICE_DIR / "data" / "ai_service.db"))
 
         # Deterministic risk scoring backend: auto | xgboost | fallback
         self.RISK_BACKEND: str = os.getenv("RISK_BACKEND", "auto")
