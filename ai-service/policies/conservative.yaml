@@ -1,0 +1,23 @@
+# Conservative underwriting policy profile (Team B).
+version: "1.0"
+profile: conservative
+
+limits:
+  foir_max: 0.40
+  ltv_max: 0.70
+  min_age: 23
+  max_tenure_months: 48
+
+confidence:
+  income_min: 0.70
+  overall_min: 0.65
+
+mismatch:
+  income_tolerance: 0.01
+  human_review_mismatch_threshold: 1
+
+flags:
+  require_kyc: true
+  require_bank_statement: true
+  require_dealer_invoice: true
+  require_platform_earnings: true

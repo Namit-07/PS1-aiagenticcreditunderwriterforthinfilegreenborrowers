@@ -1,0 +1,20 @@
+{
+  "name": "ai-credit-underwriter",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "npm@11.14.1",
+  "workspaces": ["frontend", "backend", "ai-service"],
+  "scripts": {
+    "build": "turbo run build --filter=frontend",
+    "dev": "turbo run dev --parallel",
+    "start": "turbo run start",
+    "serve": "turbo run serve --parallel",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck --filter=frontend",
+    "test": "turbo run test",
+    "install:dev": "turbo run install:dev"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3"
+  }
+}

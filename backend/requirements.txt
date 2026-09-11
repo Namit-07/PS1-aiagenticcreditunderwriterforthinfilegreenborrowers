@@ -1,0 +1,28 @@
+# ---- Team A backend (FastAPI main service) ----
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+pydantic>=2.10,<3
+pydantic-settings>=2.6,<3
+
+# Database
+sqlalchemy>=2.0.36,<3
+psycopg[binary]>=3.2,<4
+alembic>=1.14,<2
+
+# AI-service integration
+httpx>=0.28,<1
+
+# Auth (Supabase)
+supabase>=2.10
+python-multipart>=0.0.20
+
+# Config / env
+python-dotenv>=1.0
+
+# Storage (S3-compatible)
+boto3>=1.35,<2
+
+# Testing
+pytest>=8.3
+pytest-asyncio>=0.24

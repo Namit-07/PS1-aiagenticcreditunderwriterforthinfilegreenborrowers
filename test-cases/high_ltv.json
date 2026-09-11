@@ -1,0 +1,62 @@
+{
+  "name": "high_ltv",
+  "description": "Loan 115,000 against a 120,000 vehicle -> LTV 0.96 > 0.80 -> REJECT.",
+  "policy_profile": "default",
+  "application": {
+    "id": "APP-LTV-004",
+    "status": "underwriting",
+    "product": {
+      "type": "ev_two_wheeler",
+      "amount": 115000,
+      "tenure_months": 48,
+      "rate_annual": 14.0
+    },
+    "borrower": {
+      "ref_id": "REF-APP-LTV-004",
+      "age": 29,
+      "location_tier": "tier_2",
+      "full_name": "Ravi Kumar",
+      "declared_monthly_income": 39000,
+      "employment_type": "gig_platform"
+    },
+    "loan_request": {
+      "amount": 115000,
+      "tenure_months": 48,
+      "vehicle_price": 120000,
+      "down_payment": 5000
+    },
+    "documents": [
+      {
+        "document_id": "borrower-001/kyc.txt",
+        "filename": "kyc.txt",
+        "kind": "kyc",
+        "text": "KYC DOCUMENT - Aadhaar (SYNTHETIC, for demo only)\nName: Ravi Kumar\nAadhaar No: XXXX-XXXX-4321\nDOB: 12/03/1996\nAddress: 14 MG Road, Pune 411001\n"
+      },
+      {
+        "document_id": "borrower-001/bank_statement.txt",
+        "filename": "bank_statement.txt",
+        "kind": "bank_statement",
+        "text": "BANK STATEMENT - Demo Bank Ltd (SYNTHETIC)\nAccount holder name: Ravi Kumar\nAddress: 14 MG Road, Pune 411001\nIFSC: DEMO0001234   Account: XXXXXX7788\nStatement period: last 6 months\nMonthly credits (last 6 months): Rs 38,500 ; Rs 41,000 ; Rs 36,200 ; Rs 39,800 ; Rs 37,900 ; Rs 40,100\nAverage monthly income (credits): Rs 38,900\nExisting EMI obligations: Rs 2,500\nClosing balance trend: stable\n"
+      },
+      {
+        "document_id": "borrower-001/dealer_invoice.txt",
+        "filename": "dealer_invoice.txt",
+        "kind": "dealer_invoice",
+        "text": "DEALER INVOICE - GreenWheels EV Pvt Ltd (SYNTHETIC)\nBuyer name: Ravi Kumar\nVehicle: EV scooter (2 wheeler)\nOn-road price: Rs 120,000\nLoan amount requested: Rs 115,000\nChassis: SYN-0000-DEMO\n"
+      },
+      {
+        "document_id": "borrower-001/platform_earnings.txt",
+        "filename": "platform_earnings.txt",
+        "kind": "platform_earnings",
+        "text": "PLATFORM EARNINGS - GigApp partner payout summary (SYNTHETIC)\nPartner name: Ravi Kumar\nAverage monthly payout: Rs 39,000\nTotal earnings (6 months): Rs 234,000\nActive days per month: 24\n"
+      }
+    ]
+  },
+  "expected": {
+    "status": "completed",
+    "decision": "declined",
+    "reason_codes_include": [
+      "HIGH_LTV"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/schemas/application.json",
+  "title": "CreditApplication",
+  "description": "A credit application submitted for underwriting. Shared contract between frontend (Team A), backend (Team A) and AI service (Team B).",
+  "type": "object",
+  "required": ["id", "status", "product", "borrower", "loan_request", "created_at", "updated_at"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "documents_pending", "underwriting", "decision_pending", "approved", "declined", "referred", "cancelled"]
+    },
+    "product": {
+      "type": "object",
+      "required": ["type", "amount", "tenure_months", "rate_annual"],
+      "properties": {
+        "type": { "type": "string", "enum": ["green_vehicle_loan", "solar_loan", "ev_loan"] },
+        "amount": { "type": "number", "minimum": 0 },
+        "tenure_months": { "type": "integer", "minimum": 1 },
+        "rate_annual": { "type": "number", "minimum": 0 }
+      }
+    },
+    "borrower": {
+      "type": "object",
+      "required": ["ref_id", "age", "location_tier"],
+      "properties": {
+        "ref_id": { "type": "string", "description": "Synthetic, non-PII borrower reference id" },
+        "age": { "type": "integer", "minimum": 18 },
+        "location_tier": { "type": "string", "enum": ["tier_1", "tier_2", "tier_3"] }
+      }
+    },
+    "loan_request": {
+      "type": "object",
+      "required": ["amount", "tenure_months"],
+      "properties": {
+        "amount": { "type": "number", "minimum": 0 },
+        "tenure_months": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": true
+}

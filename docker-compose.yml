@@ -1,0 +1,53 @@
+# Root orchestration for the AI Credit Underwriter hackathon project.
+# Spins up the FastAPI backend, the LangGraph AI service, and PostgreSQL.
+# The frontend (Next.js) is intended to run on Vercel and is NOT included here.
+
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: acu-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-ai_credit_underwriter}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+    container_name: acu-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-ai_credit_underwriter}
+      AI_SERVICE_URL: http://ai-service:8100
+      MOCK_AI_MODE: ${MOCK_AI_MODE:-true}
+    ports:
+      - "8000:8000"
+
+  ai-service:
+    build:
+      context: ./ai-service
+    container_name: acu-ai-service
+    restart: unless-stopped
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      MOCK_AI_MODE: ${MOCK_AI_MODE:-true}
+    ports:
+      - "8100:8100"
+
+volumes:
+  postgres_data:

@@ -1,0 +1,86 @@
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# ---- Environment files (keep examples) ----
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# ---- Node / Next.js ----
+node_modules/
+.pnp
+.pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/reports
+!.yarn/registry
+!.yarn/release-state.yml
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+.yarn/cache/
+.yarn/unplugged/
+
+# Next.js build output
+.next/
+out/
+build/
+next-env.d.ts
+*.tsbuildinfo
+
+# Turborepo
+.turbo/
+
+# Testing
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Misc
+*.db
+*.sqlite3
+*.log
+.DS_Store
+
+# Docker
+*.pid

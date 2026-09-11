@@ -1,0 +1,41 @@
+# ---- Team B AI service (FastAPI + LangGraph + Gemini) ----
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+pydantic>=2.10,<3
+pydantic-settings>=2.6,<3
+python-dotenv>=1.0
+PyYAML>=6.0
+
+# Agents / workflow
+langgraph>=0.2.30
+langchain-core>=0.3.20
+
+# LLM (Gemini free-tier first; OpenAI-compatible fallback kept optional)
+google-generativeai>=0.8.0
+openai>=1.50
+
+# ML / data (shap is optional: without it exact TreeSHAP values come from xgboost pred_contribs)
+xgboost>=2.1
+shap>=0.45
+scikit-learn>=1.5
+numpy>=1.26
+pandas>=2.2
+
+# Document extraction / OCR
+pymupdf>=1.24
+pytesseract>=0.3.13
+Pillow>=10.1
+pdf2image>=1.17
+
+# Persistence
+SQLAlchemy>=2.0
+alembic>=1.13
+psycopg2-binary>=2.9
+
+# HTTP
+httpx>=0.27
+
+# Testing
+pytest>=8.3
+pytest-asyncio>=0.24

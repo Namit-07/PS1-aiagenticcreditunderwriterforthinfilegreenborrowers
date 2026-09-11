@@ -1,0 +1,75 @@
+# Canonical reason codes for the AI Credit Underwriter.
+# Shared contract between Team A (display/messaging) and Team B (decision reasons).
+# Each code: short machine key + human summary + default severity.
+#
+# Decision matrix (ai-service/app/agents/decision_agent.py):
+#   any blocker  -> declined
+#   any warning  -> referred
+#   none         -> approved
+#   critical field below confidence threshold -> run pauses as human_review
+#
+# v1.1 is ADDITIVE over v1.0 (no code removed or re-severitied).
+
+version: "1.1"
+
+reason_codes:
+  MISSING_DOCUMENT:
+    summary: "One or more required documents were not provided"
+    severity: warning        # curable by upload -> referred (was documented as blocker in v1.0 draft)
+
+  INCOME_MISMATCH:
+    summary: "Reconciled income between sources did not agree within tolerance"
+    severity: warning
+
+  HIGH_FOIR:
+    summary: "Fixed obligation to income ratio exceeds policy limit"
+    severity: blocker
+
+  HIGH_LTV:
+    summary: "Loan to value ratio exceeds policy limit"
+    severity: blocker
+
+  LOW_INCOME_CONFIDENCE:
+    summary: "Extracted income confidence below threshold"
+    severity: warning
+
+  LOW_OVERALL_CONFIDENCE:
+    summary: "Overall evidence confidence below threshold"
+    severity: warning
+
+  LOW_AGE:
+    summary: "Borrower age is below policy minimum"
+    severity: blocker
+
+  ELIGIBLE_UNDER_THRESHOLD:
+    summary: "Application passes but is over policy limit; eligible for human review"
+    severity: warning
+
+  HUMAN_REVIEW_REQUIRED:
+    summary: "Quality review required before a decision can be finalized"
+    severity: warning
+
+  # ---- added in v1.1 ----
+  NAME_MISMATCH:
+    summary: "Borrower name differs across KYC / bank / invoice documents"
+    severity: warning
+
+  ADDRESS_MISMATCH:
+    summary: "Borrower address differs across documents"
+    severity: warning
+
+  VEHICLE_PRICE_MISMATCH:
+    summary: "Vehicle price on the application differs from the dealer invoice"
+    severity: warning
+
+  LOAN_VS_INVOICE:
+    summary: "Requested loan is a high share of the invoiced vehicle value"
+    severity: warning
+
+  NO_VERIFIED_INCOME:
+    summary: "No verified monthly income could be established from evidence"
+    severity: blocker
+
+  MAX_TENURE_EXCEEDED:
+    summary: "Requested tenure exceeds the policy maximum"
+    severity: blocker

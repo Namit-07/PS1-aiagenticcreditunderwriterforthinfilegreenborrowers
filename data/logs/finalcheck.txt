@@ -1,0 +1,1 @@
+http://localhost:3000/risk-model -> 200 | http://localhost:8000/risk/metrics -> 200 | http://localhost:8100/health -> 200 | http://localhost:8000/health -> 200

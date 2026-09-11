@@ -1,0 +1,13 @@
+{
+  "name": "@acu/ai-service",
+  "version": "0.1.0",
+  "private": true,
+  "description": "FastAPI + LangGraph AI service (Team B). This package.json is a Turborepo task-runner shim only; all real deps live in requirements.txt.",
+  "scripts": {
+    "install:dev": "python -m pip install -r requirements.txt",
+    "dev": "uvicorn app.main:app --reload --port 8100",
+    "serve": "uvicorn app.main:app --host 0.0.0.0 --port 8100",
+    "test": "python -m pytest tests",
+    "lint": "python -m compileall -q app tests || exit 0"
+  }
+}

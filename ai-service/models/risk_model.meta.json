@@ -1,0 +1,29 @@
+{
+  "model_version": "xgb-v1",
+  "data_version": "synthetic-v1-n1200-s42",
+  "features": [
+    "verified_monthly_income",
+    "income_volatility",
+    "income_stability",
+    "foir",
+    "ltv",
+    "emi_to_income",
+    "existing_monthly_obligations",
+    "bank_balance_trend",
+    "income_sources",
+    "income_mismatch_percentage",
+    "document_confidence",
+    "identity_mismatch_flag",
+    "repayment_history_score",
+    "employment_stability",
+    "loan_amount",
+    "vehicle_price",
+    "tenure_months"
+  ],
+  "trained_at": "2026-09-11T14:14:30.590359+00:00",
+  "training_rows": 1200,
+  "label": "deterministic risk function + noise (see app/risk/engine._synthetic_dataset)",
+  "note": "SYNTHETIC ONLY - not a production credit model; secondary signal, never decides.",
+  "backend": "fallback",
+  "error": "xgboost unavailable (No module named 'xgboost'); deterministic fallback scorer in use"
+}

@@ -1,0 +1,129 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 2987 >>
+stream
+BT
+/F1 10 Tf
+12 TL
+40 810 Td
+(Credit Memo - AI Agentic Underwriter \(synthetic demo\)) Tj T*
+(Run: 80d8e3af-49bd-4e42-9a90-edee529c1992   Application: cd18aeaf-5029-4e33-92a6-18dce51c501b) Tj T*
+(Generated: 2026-09-11T17:36:49.113914+00:00   by explanation_agent) Tj T*
+() Tj T*
+(1. DECISION) Tj T*
+(   Decision: APPROVED   Confidence: 0.88) Tj T*
+(   Reason codes: none) Tj T*
+() Tj T*
+(2. BORROWER SUMMARY \(declared facts\)) Tj T*
+(   ref_id: REF-APP-CLEAN-001) Tj T*
+(   full_name: Ravi Kumar) Tj T*
+(   age: 29) Tj T*
+(   location_tier: tier_2) Tj T*
+(   employment_type: gig_platform) Tj T*
+(   declared_monthly_income: 39,000.00) Tj T*
+(   loan_request.amount: 90,000.00) Tj T*
+(   loan_request.down_payment: 30,000.00) Tj T*
+(   loan_request.tenure_months: 36) Tj T*
+(   loan_request.vehicle_price: 120,000.00) Tj T*
+() Tj T*
+(3. EXTRACTED FACTS \(evidence with citations\)) Tj T*
+(   full_name = Ravi Kumar  conf 0.95  [application_form p.None] auto) Tj T*
+(   monthly_income = 39,000.00  conf 0.95  [application_form p.None] auto) Tj T*
+(   loan_amount = 90,000.00  conf 0.95  [application_form p.None] auto) Tj T*
+(   vehicle_price = 120,000.00  conf 0.95  [application_form p.None] auto) Tj T*
+(   full_name = Ravi Kumar  conf 0.85  [kyc.txt p.1] auto) Tj T*
+(   identity = XXXX-XXXX-4321  conf 0.9  [kyc.txt p.1] auto) Tj T*
+(   monthly_income = 38,900.00  conf 0.92  [bank_statement.txt p.1] auto) Tj T*
+(   bank_credits = [38500.0, 41000.0, 36200.0, 39800.0, 37900.0, 40100.0]  conf 0.9  [bank_statement.txt p.1]) Tj T*
+(   auto) Tj T*
+(   existing_monthly_obligations = 2,500.00  conf 0.92  [bank_statement.txt p.1] auto) Tj T*
+(   vehicle_price = 120,000.00  conf 0.92  [dealer_invoice.txt p.1] auto) Tj T*
+(   loan_amount = 90,000.00  conf 0.92  [dealer_invoice.txt p.1] auto) Tj T*
+(   platform_income = 39,000.00  conf 0.92  [platform_earnings.txt p.1] auto) Tj T*
+(   monthly_income = 39,000.00  conf 0.92  [platform_earnings.txt p.1] auto) Tj T*
+() Tj T*
+(4. CALCULATED VALUES \(deterministic engine, formula v1\)) Tj T*
+(   verified_income: 39,150.00) Tj T*
+(   existing_obligations: 2,500.00) Tj T*
+(   emi: 3,075.99) Tj T*
+(   foir: 0.1424) Tj T*
+(   ltv: 0.75) Tj T*
+(   income_volatility: 0.0408) Tj T*
+(   income_stability: 0.9592) Tj T*
+(   loan_to_income: 0.1916) Tj T*
+(   emi_to_income: 0.0786) Tj T*
+(   input.annual_rate: 14.00) Tj T*
+(   input.existing_monthly_obligations: 2,500.00) Tj T*
+(   input.loan_amount: 90,000.00) Tj T*
+(   input.monthly_incomes: [38500.0, 41000.0, 36200.0, 39800.0, 37900.0, 40100.0]) Tj T*
+(   input.tenure_months: 36) Tj T*
+(   input.vehicle_price: 120,000.00) Tj T*
+() Tj T*
+(5. RISK SIGNAL \(secondary, never decides\)) Tj T*
+(   score 0.2611  band LOW  model xgb-v1/fallback) Tj T*
+() Tj T*
+(6. AI REASONING) Tj T*
+(   strengths: FOIR 14% is comfortably serviceable) Tj T*
+(   strengths: LTV 75% leaves borrower equity cushion) Tj T*
+(   risks: INCOME_MISMATCH: Monthly income differs across documents by 0.3%) Tj T*
+ET
+endstream
+endobj
+3 0 obj
+<< /Length 489 >>
+stream
+BT
+/F1 10 Tf
+12 TL
+40 810 Td
+(   reasoning: Deterministic FOIR 14.24%, LTV 75.00%; XGBoost band LOW \(score 0.2611\).) Tj T*
+() Tj T*
+(7. POLICY) Tj T*
+(   profile default version 1.0) Tj T*
+(   limit.foir_max: 0.5) Tj T*
+(   limit.ltv_max: 0.8) Tj T*
+(   limit.max_tenure_months: 60) Tj T*
+(   limit.min_age: 21) Tj T*
+() Tj T*
+(8. HUMAN OVERRIDES) Tj T*
+(   none) Tj T*
+() Tj T*
+(SYNTHETIC DATA - demo only. Financial numbers computed deterministically; LLM never sets numbers.) Tj T*
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 6 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 3 0 R >>
+endobj
+6 0 obj
+<< /Type /Pages /Kids [4 0 R 5 0 R] /Count 2 >>
+endobj
+7 0 obj
+<< /Type /Catalog /Pages 6 0 R >>
+endobj
+8 0 obj
+<< /Title (Credit Memo - AI Agentic Underwriter \(synthetic demo\)) /Producer (acu-backend) >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000003124 00000 n 
+0000003664 00000 n 
+0000003790 00000 n 
+0000003916 00000 n 
+0000003979 00000 n 
+0000004028 00000 n 
+trailer
+<< /Size 9 /Root 7 0 R /Info 8 0 R >>
+startxref
+4138
+%%EOF

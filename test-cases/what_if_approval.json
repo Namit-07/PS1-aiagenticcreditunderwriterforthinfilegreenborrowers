@@ -1,0 +1,73 @@
+{
+  "name": "what_if_approval",
+  "description": "Base run is the high_foir REJECT; what-if with tenure 48m lowers EMI so FOIR < 0.50 -> scenario APPROVE while the base run stays REJECT (immutable).",
+  "policy_profile": "default",
+  "application": {
+    "id": "APP-WHATIF-008",
+    "status": "underwriting",
+    "product": {
+      "type": "ev_two_wheeler",
+      "amount": 150000,
+      "tenure_months": 24,
+      "rate_annual": 16.0
+    },
+    "borrower": {
+      "ref_id": "REF-APP-WHATIF-008",
+      "age": 26,
+      "location_tier": "tier_2",
+      "full_name": "Arjun Mehta",
+      "declared_monthly_income": 22000,
+      "employment_type": "gig_platform"
+    },
+    "loan_request": {
+      "amount": 150000,
+      "tenure_months": 24,
+      "vehicle_price": 200000,
+      "down_payment": 50000
+    },
+    "documents": [
+      {
+        "document_id": "borrower-003/kyc.txt",
+        "filename": "kyc.txt",
+        "kind": "kyc",
+        "text": "KYC DOCUMENT - Aadhaar (SYNTHETIC, for demo only)\nName: Arjun Mehta\nAadhaar No: XXXX-XXXX-1122\nDOB: 20/01/1999\nAddress: 7 Station Road, Jaipur 302001\n"
+      },
+      {
+        "document_id": "borrower-003/bank_statement.txt",
+        "filename": "bank_statement.txt",
+        "kind": "bank_statement",
+        "text": "BANK STATEMENT - Demo Bank Ltd (SYNTHETIC)\nAccount holder name: Arjun Mehta\nAddress: 7 Station Road, Jaipur 302001\nIFSC: DEMO0001234   Account: XXXXXX7788\nStatement period: last 6 months\nMonthly credits (last 6 months): Rs 22,000 ; Rs 21,500 ; Rs 23,800 ; Rs 20,900 ; Rs 22,600 ; Rs 21,200\nAverage monthly income (credits): Rs 22,000\nExisting EMI obligations: Rs 6,000\nClosing balance trend: stable\n"
+      },
+      {
+        "document_id": "borrower-003/dealer_invoice.txt",
+        "filename": "dealer_invoice.txt",
+        "kind": "dealer_invoice",
+        "text": "DEALER INVOICE - GreenWheels EV Pvt Ltd (SYNTHETIC)\nBuyer name: Arjun Mehta\nVehicle: EV scooter (2 wheeler, premium)\nOn-road price: Rs 200,000\nLoan amount requested: Rs 150,000\nChassis: SYN-0000-DEMO\n"
+      },
+      {
+        "document_id": "borrower-003/platform_earnings.txt",
+        "filename": "platform_earnings.txt",
+        "kind": "platform_earnings",
+        "text": "PLATFORM EARNINGS - GigApp partner payout summary (SYNTHETIC)\nPartner name: Arjun Mehta\nAverage monthly payout: Rs 22,000\nTotal earnings (6 months): Rs 132,000\nActive days per month: 24\n"
+      }
+    ]
+  },
+  "expected": {
+    "status": "completed",
+    "decision": "declined",
+    "reason_codes_include": [
+      "HIGH_FOIR"
+    ]
+  },
+  "what_if": {
+    "overrides": {
+      "tenure_months": 48
+    },
+    "find_min_change": true
+  },
+  "expected_what_if": {
+    "decision": "approved",
+    "base_decision": "declined",
+    "min_change_found": true
+  }
+}

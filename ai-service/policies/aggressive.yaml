@@ -1,0 +1,23 @@
+# Aggressive underwriting policy profile (Team B).
+version: "1.0"
+profile: aggressive
+
+limits:
+  foir_max: 0.60
+  ltv_max: 0.90
+  min_age: 18
+  max_tenure_months: 72
+
+confidence:
+  income_min: 0.50
+  overall_min: 0.45
+
+mismatch:
+  income_tolerance: 0.03
+  human_review_mismatch_threshold: 2
+
+flags:
+  require_kyc: true
+  require_bank_statement: true
+  require_dealer_invoice: true
+  require_platform_earnings: true

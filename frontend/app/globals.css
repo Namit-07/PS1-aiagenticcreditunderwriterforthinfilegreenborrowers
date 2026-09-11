@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design tokens — "Verdant ledger" theme.
+  Warm paper-like surfaces, a deep forest brand green, and one reserved hue per
+  outcome (success / warning / danger / info) so status colours never collide
+  with decoration. Every token has a light and a dark value.
+*/
+@layer base {
+  :root {
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --background: 40 33% 97%;
+    --foreground: 160 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 160 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 20% 10%;
+    --primary: 158 58% 27%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 158 45% 93%;
+    --accent-lime: 84 70% 42%;
+    --secondary: 40 20% 93%;
+    --secondary-foreground: 160 20% 14%;
+    --muted: 40 18% 94%;
+    --muted-foreground: 160 8% 42%;
+    --accent: 158 30% 94%;
+    --accent-foreground: 158 58% 22%;
+    --destructive: 0 70% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 14% 88%;
+    --input: 40 14% 84%;
+    --ring: 158 58% 32%;
+    --radius: 0.75rem;
+
+    /* status hues (reserved) */
+    --success: 152 60% 34%;
+    --success-soft: 150 50% 93%;
+    --warning: 34 90% 44%;
+    --warning-soft: 40 95% 92%;
+    --danger: 0 68% 50%;
+    --danger-soft: 0 80% 95%;
+    --info: 208 80% 46%;
+    --info-soft: 208 90% 94%;
+
+    /* app chrome */
+    --sidebar: 162 32% 9%;
+    --sidebar-foreground: 150 15% 88%;
+    --sidebar-muted: 150 10% 62%;
+    --sidebar-border: 160 20% 16%;
+    --sidebar-active: 158 45% 20%;
+
+    --shadow-color: 160 25% 12%;
+  }
+
+  .dark {
+    --background: 162 18% 6%;
+    --foreground: 150 12% 92%;
+    --card: 162 14% 9%;
+    --card-foreground: 150 12% 92%;
+    --popover: 162 14% 9%;
+    --popover-foreground: 150 12% 92%;
+    --primary: 156 55% 45%;
+    --primary-foreground: 162 30% 6%;
+    --primary-soft: 158 40% 14%;
+    --accent-lime: 84 65% 52%;
+    --secondary: 162 10% 14%;
+    --secondary-foreground: 150 12% 92%;
+    --muted: 162 10% 13%;
+    --muted-foreground: 150 8% 62%;
+    --accent: 158 20% 15%;
+    --accent-foreground: 156 55% 70%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 162 10% 17%;
+    --input: 162 10% 22%;
+    --ring: 156 55% 45%;
+
+    --success: 152 55% 48%;
+    --success-soft: 152 35% 14%;
+    --warning: 38 92% 56%;
+    --warning-soft: 38 40% 15%;
+    --danger: 0 75% 62%;
+    --danger-soft: 0 35% 15%;
+    --info: 208 85% 62%;
+    --info-soft: 208 40% 15%;
+
+    --sidebar: 162 22% 5%;
+    --sidebar-foreground: 150 15% 88%;
+    --sidebar-muted: 150 10% 58%;
+    --sidebar-border: 160 16% 13%;
+    --sidebar-active: 158 40% 16%;
+
+    --shadow-color: 0 0% 0%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1,
+      "cv11" 1,
+      "ss01" 1;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+  }
+
+  /* thin, theme-aware scrollbars */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.35) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 999px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  /* Subtle dotted grid used behind hero / empty areas. */
+  .bg-grid {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Brand gradient (buttons, hero accents). */
+  .bg-brand-gradient {
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(158 55% 36%) 55%, hsl(var(--accent-lime)) 140%);
+  }
+
+  .text-brand-gradient {
+    background-image: linear-gradient(120deg, hsl(var(--primary)) 0%, hsl(var(--accent-lime)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Card surface with a soft layered shadow. */
+  .surface {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    box-shadow:
+      0 1px 2px hsl(var(--shadow-color) / 0.04),
+      0 4px 16px -8px hsl(var(--shadow-color) / 0.1);
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground;
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .animate-in-up {
+    animation: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .delay-1 {
+    animation-delay: 60ms;
+  }
+  .delay-2 {
+    animation-delay: 120ms;
+  }
+  .delay-3 {
+    animation-delay: 180ms;
+  }
+  .delay-4 {
+    animation-delay: 240ms;
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 hsl(var(--info) / 0.45);
+    }
+    100% {
+      box-shadow: 0 0 0 10px hsl(var(--info) / 0);
+    }
+  }
+  .pulse-ring {
+    animation: pulse-ring 1.4s ease-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-in-up,
+    .pulse-ring {
+      animation: none;
+    }
+  }
+}
+
+/* Print: hide app chrome so the credit memo prints cleanly. */
+@media print {
+  aside,
+  header,
+  nav,
+  .print\:hidden {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+  }
+  body {
+    background: white;
+  }
+}
