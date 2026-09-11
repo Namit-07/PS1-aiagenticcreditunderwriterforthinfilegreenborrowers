@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "packageManager": "npm@11.14.1",
-  "workspaces": ["frontend", "backend", "ai-service"],
+  "workspaces": [
+    "frontend",
+    "backend",
+    "ai-service"
+  ],
   "scripts": {
     "build": "turbo run build --filter=frontend",
     "dev": "turbo run dev --parallel",
