@@ -52,6 +52,9 @@ async def start_underwrite(db: Session, application_id: str, policy_profile: str
     run = UnderwritingRun(id=run_id, application_id=application_id, status=str(resp.get("status", "running")),
                           policy_profile=policy_profile, started_by=started_by)
     db.add(run)
+    # The models carry FK columns but no ORM relationships, so SQLAlchemy cannot order
+    # these inserts by dependency; flush the parent row first or Postgres rejects the child.
+    db.flush()
     db.add(AuditEvent(run_id=run_id, sequence=0, step="RUN_REQUESTED", actor=started_by or "system",
                       payload_json=dumps({"policy_profile": policy_profile, "documents": len(payload["documents"])})))
     application_service.set_status(db, application_id, "underwriting", latest_run_id=run_id)
